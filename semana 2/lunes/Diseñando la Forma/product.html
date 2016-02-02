@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    Normalize.css makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+  -->
+  <link rel="stylesheet" href="normalize.css">
+
+  <!-- Esto especifica que podamos utilizar acentos dentro del HTML  -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!-- Aquí debe de ir tu css -->
+  <link rel="stylesheet" href="main.css">
+  <title>Forma de CSS</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mi Gran App</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a>Inicio</a></li>  
+        <li><a>Precios</a></li>
+        <li><a>Nosotros</a></li>
+        <li><a>Contacto</a></li>
+      </ul>
+      <br clear="all">
+    </nav>
+    <div class="content">
+      <h2>Regístrate te va a encantar esta aplicación</h2>
+      <div id="registration">
+        <form name="sign_up" action="#" method="post">
+          <label for="email">Email</label>
+          <input id="registration_email" type="text" name="email" placeholder="Email">
+          <label for="password">Password</label>
+          <input id="registration_password" type="password" name="password" placeholder="Password">
+
+          <button id="registration_btn" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      Derechos &copy; 2015 Lorem S.A. de C.V.
+    </div>
+  </div>
+</body>
+</html>
