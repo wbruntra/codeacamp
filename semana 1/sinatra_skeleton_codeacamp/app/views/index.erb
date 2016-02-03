@@ -1,4 +1,21 @@
   <h1>Bienvenido a Sinatra!</h1>
   <p>Este es un esqueleto de sinatra que armamos para ti</p>
-
-  
+  <p>Send a message:</p>
+  <form action="/cool_url" method="get">
+    <input type="text" name="message">
+    <input type="submit" value="Say something">
+  </form>
+  <hr>
+  <p>Tell me about yourself</p>
+  <form action="/cool_url" method="post">
+    <input type="text" name="user[name]" placeholder="Name"><br>
+    <input type="radio" name="user[gender]" value="male" checked> Male<br>
+    <input type="radio" name="user[gender]" value="female"> Female<br>
+    <input type="radio" name="user[gender]" value="other"> Other<br>
+    <p>Favorite Number:</p>
+    <select name="user[favnum]">
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select><br>
+    <input type="submit" value="Register">
+  </form>
