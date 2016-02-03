@@ -20,18 +20,20 @@
   height:70px;
 }
 
-.top-nav {
+.top-nav, .content {
   float:left;
+}
+
+.top-nav {
   width:120px;
   background-color:gray;
   text-align:center;
 }
 
 .content {
-  float:left;
-  width:636px;
+  width:646px;
   background-color:white;
-  padding-left:12px;
+  padding-left:2px;
   padding-bottom:20px;
 }
 
@@ -56,5 +58,4 @@ li a {
   padding: 20px 0;
   clear:both;
   background-color:white;
-  text-align:center;
 }

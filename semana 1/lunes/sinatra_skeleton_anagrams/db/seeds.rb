@@ -12,7 +12,7 @@
 
 def load_words
   words = []
-  File.open('words.txt') do |f|
+  File.open('wordlist10k.txt') do |f|
     while line = f.gets
       words.push(line.chomp)
     end

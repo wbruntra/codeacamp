@@ -2,7 +2,7 @@
 <%= erb :entry_form %>
 <% if @new_word %>
   <p>Estos son anagramas para '<%= @new_word %>':</p>
-  <p># Aqui deberás enlistar todos los anagramas</p>
+  <p>
   <ul>
   <% @words.each do |word| %>
   	<li>
@@ -10,4 +10,5 @@
   	</li>
   <% end %>
   </ul>
+  </p>
 <% end %>
