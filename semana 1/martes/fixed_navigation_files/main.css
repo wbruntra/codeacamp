@@ -32,6 +32,7 @@
   width:636px;
   background-color:white;
   padding-left:12px;
+  padding-bottom:20px;
 }
 
 nav ul {
@@ -51,6 +52,8 @@ li a {
 }
 
 .footer {
+  border-top:1px solid black;
+  padding: 20px 0;
   clear:both;
   background-color:white;
   text-align:center;
