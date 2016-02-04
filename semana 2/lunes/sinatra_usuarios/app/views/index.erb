@@ -1,4 +1,7 @@
-  <h1>Bienvenido a Sinatra!</h1>
-  <p>Este es un esqueleto de sinatra que armamos para ti</p>
+  <h1>Bienvenido a la página!</h1>
 
-  
+  <% if session['email'] %>
+    <%= erb :_logged %>
+  <% else %>
+    <%= erb :_signInOptions %>
+  <% end %>
