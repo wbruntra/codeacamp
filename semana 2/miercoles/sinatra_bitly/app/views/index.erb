@@ -3,3 +3,14 @@
     <input type="text" name="url">
     <input type="submit" value="Shorten">
   </form>
+
+<% if !@urls.empty? %>
+  <p>Here is what we have so far:</p>
+  <ul>
+  <% @urls.each do |url| %>
+	 <li>
+     <a href="/<%= url.short_url %>" target="_blank"><%= url.long_url %></a>
+	</li>
+  <% end %>
+  </ul>
+<% end %>
