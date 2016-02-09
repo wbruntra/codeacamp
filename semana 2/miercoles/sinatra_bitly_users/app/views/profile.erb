@@ -1,0 +1,16 @@
+<p>Here is what I know about you:</p>
+<p>Your email: <%= @user.email %></p>
+
+<% if !@user_urls.empty? %>
+  <p>Here's how your URLs are doing:</p>
+  <ul>
+    <% @user_urls.each do |url| %>
+    <li>
+      <p><%= url.long_url %> Clicks: <%= url.click_count %></a>
+ 	  </li>
+     <% end %>
+  </ul>
+<% else %>
+  <p>You haven't shortened any links yet! Get to work!</p>
+<% end %>
+<%= erb :_logged %>

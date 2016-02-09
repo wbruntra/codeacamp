@@ -14,19 +14,8 @@
   <% end %>
   </ul>
 <% end %>
-
 <% if session['email'] %>
-  <% if !@user_urls.empty? %>
-  <p>Here's how your URLs are doing:</p>
-  <ul>
-    <% @user_urls.each do |url| %>
-    <li>
-      <p><%= url.long_url %> Clicks: <%= url.click_count %></a>
- 	</li>
-    <% end %>
-  </ul>
-  <% end %>
-  <%= erb :_logged %>
+<%= erb :_logged %>
 <% else %>
-  <%= erb :_signInOptions %>
+<%= erb :_signInOptions %>
 <% end %>

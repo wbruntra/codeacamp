@@ -1,16 +1,26 @@
+before do
+  pass if ['signup', 'login','logout','debug', nil].include? request.path_info.split('/')[1]
+  if !session['email']
+    redirect '/login'
+  end
+end
+
 get '/' do
   # Deja a los usuarios crear una URL reducida y despliega una lista de URLs.
   @urls = Url.all
   session['email'] ||= nil
-  @user_urls = Url.where(creator: session['email'])
   erb :index
+end
+
+get '/profile' do
+  @user = User.where(email: session['email']).first
+  @user_urls = Url.where(creator: session['email'])
+  erb :profile
 end
 
 get '/debug' do
   @urls = Url.all
-  @urls.each do |url|
-    p url
-  end
+  @users = User.all
   erb :debug
 end
 
@@ -18,6 +28,9 @@ post '/urls' do
   url = params[:url]
   short_url = Url.make_short
   creator = session['email']
+  if !creator
+    creator = 'Anonymous'
+  end
   h = {
     'long_url' => url,
     'short_url' => short_url,
