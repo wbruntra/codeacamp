@@ -1,6 +1,9 @@
   <h1>Url Shortener!</h1>
   <form action="/urls" method="post">
     <input type="text" name="url">
+    <% if session['email'] %>
+    <input type="checkbox" name="private" value="yes">
+    <% end %><br>
     <input type="submit" value="Shorten">
   </form>
 
@@ -8,9 +11,11 @@
   <p>Here are some good URLs</p>
   <ul>
   <% @urls.each do |url| %>
-	 <li>
-     <a href="/<%= url.short_url %>" target="_blank"><%= url.long_url %></a>
-	</li>
+    <% if !url.private %>
+  	 <li>
+       <a href="/<%= url.short_url %>" target="_blank"><%= url.long_url %></a>
+  	</li>
+    <% end %>
   <% end %>
   </ul>
 <% end %>

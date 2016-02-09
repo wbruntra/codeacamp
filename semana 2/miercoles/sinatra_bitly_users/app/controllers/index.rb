@@ -9,12 +9,16 @@ get '/' do
   # Deja a los usuarios crear una URL reducida y despliega una lista de URLs.
   @urls = Url.all
   session['email'] ||= nil
+  if session['email']
+    @user = User.where(email: session['email']).first
+  end
   erb :index
 end
 
-get '/profile' do
-  @user = User.where(email: session['email']).first
-  @user_urls = Url.where(creator: session['email'])
+get '/users/:id' do
+  id = params[:id]
+  @user = User.where(username: id).first
+  @user_urls = Url.where(creator: @user.email)
   erb :profile
 end
 
@@ -26,6 +30,11 @@ end
 
 post '/urls' do
   url = params[:url]
+  if params[:private] == 'yes'
+    personal = true
+  else
+    personal = false
+  end
   short_url = Url.make_short
   creator = session['email']
   if !creator
@@ -34,7 +43,8 @@ post '/urls' do
   h = {
     'long_url' => url,
     'short_url' => short_url,
-    'creator' => creator
+    'creator' => creator,
+    'private' => personal
   }
   @url = Url.new(h)
   if (@url.save)
