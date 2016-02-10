@@ -1,0 +1,37 @@
+application: pagination
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: \1
+  upload: (.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: \1
+  upload: (.*\.css)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: \1
+  upload: (.*\.js)
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: \1
+  upload: (.*\.html)
+  expiration: "1h"
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"

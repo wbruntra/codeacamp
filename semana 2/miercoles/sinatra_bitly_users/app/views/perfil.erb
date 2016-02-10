@@ -1,0 +1,17 @@
+<h3>Your information:</h3>
+<ul>
+  <li>Name: <%= @user.name %></li>
+  <li>Email: <%= @user.email %></li>
+</ul>
+<% if !@user_urls.empty? %>
+<p>Here's how your URLs are doing:</p>
+<ul>
+  <% @user_urls.each do |url| %>
+  <li>
+    <p><%= url.long_url %> Clicks: <%= url.click_count %></a>
+</li>
+  <% end %>
+</ul>
+<% else %>
+<p> You have not shortened any URLs yet! Get to work!</p>
+<% end %>

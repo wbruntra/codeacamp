@@ -9,7 +9,7 @@
   <ul>
   <% @urls.each do |url| %>
 	 <li>
-     <a href="/<%= url.short_url %>" target="_blank"><%= url.long_url %></a>
+     <a href="/go/<%= url.short_url %>" target="_blank"><%= url.long_url %></a>
 	</li>
   <% end %>
   </ul>

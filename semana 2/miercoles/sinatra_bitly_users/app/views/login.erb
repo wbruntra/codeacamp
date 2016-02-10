@@ -1,3 +1,7 @@
 <h1>Bienvenido a mi bit.ly!</h1>
 <p>Entra tu informacion</p>
-  <%= erb :_form %>
+<form method="post">
+  <input type="text" name="identity" placeholder="username or email"><br>
+  <input type="password" name="password" placeholder="password"><br>
+  <input type="submit" value="Enviar">
+</form>
