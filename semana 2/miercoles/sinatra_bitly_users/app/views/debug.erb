@@ -1,3 +1,7 @@
 <% @urls.each do |url| %>
-  <p><%= url.short_url %> -- <%= url.click_count %> -- <%= url.creator %></p>
+  <p><%= url.long_url %> -- <%= url.short_url %> -- <%= url.click_count %> -- <%= url.creator %></p>
+<% end %>
+
+<% @users.each do |user| %>
+  <p><%= user.email %> -- <%= user.password %></p>
 <% end %>
