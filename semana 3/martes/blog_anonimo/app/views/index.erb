@@ -1,4 +1,11 @@
   <h1>Bienvenido a Sinatra!</h1>
-  <p>Este es un esqueleto de sinatra que armamos para ti</p>
-
-  
+  <% @posts.each do |post| %>
+  <p><a href="/post/<%= post.id %>"><%= post.title %></a></p>
+  <p><%= post.body %></p>
+  <p>Tags:
+    <% post.tags.each do |tag| %>
+    <a href="/tag/<%= tag.name %>"><%= tag.name %></a>,
+    <% end %>
+  </p>
+  <hr>
+  <% end %>

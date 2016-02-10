@@ -25,18 +25,5 @@ for sonnet in sonnets do
   title = sonnet['title']
   body = sonnet['body']
   tags = sonnet['tags']
-  sonnet.create(
-    author: author,
-    title: title,
-    body: body)
-  for tag in tags do
-    working_tag = Tag.find_by(name: tag)
-    if !working_tag
-      working_tag = tag.create(name: tag)
-    end
-    connection_dict = {
-      'postname' => title,
-      'tagname' => tag}
-    connection = Connection.create(connection_dict)
-  end
+  add_post(title,author,body,tags)
 end

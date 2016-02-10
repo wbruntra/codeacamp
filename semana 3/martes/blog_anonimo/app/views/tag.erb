@@ -1,0 +1,11 @@
+You searched for <%= @tag.name %>.
+
+<% for post in @posts %>
+<p><%= post.title %></p>
+<p><%= post.body %></p>
+<p>Tags:
+  <% post.tags.each do |tag| %>
+  <a href="/tag/<%= tag %>"><%= tag.name %></a>,
+  <% end %>
+</p>
+<% end %>

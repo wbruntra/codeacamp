@@ -1,5 +1,5 @@
 class Connection < ActiveRecord::Base
   # Remember to create a migration!
-  # belongs_to :post
-  # belongs_to :tag
+  belongs_to :post
+  belongs_to :tag
 end
