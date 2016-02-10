@@ -1,0 +1,6 @@
+<form action="/delete" method="post">
+ <% @posts.each do |post| %>
+  <input type="checkbox" name="unwanted[]" value="<%= post.id %>"><%= post.title %><br>
+   <% end %>
+   <input type="submit" value="Delete">
+</form>

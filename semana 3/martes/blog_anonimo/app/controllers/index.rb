@@ -23,8 +23,31 @@ end
 
 get '/post/:id' do
   @id = params[:id]
-  @post = Post.find(@id)
+  @post = Post.find_by_id(@id)
   erb :post
+end
+
+get '/delete' do
+  @posts = Post.all
+
+  erb :deleter
+end
+
+post '/delete' do
+  post_ids = params[:unwanted]
+  p post_ids.class
+  s = 'You deleted:'
+  a = Array.new
+  post_ids.each do |post_id|
+    post = Post.find_by_id(post_id)
+    connections = Connection.where(post_id: post_id)
+    connections.each do |connection|
+      connection.delete
+    end
+    a = a.push(post.title)
+    post.delete
+  end
+  s + a.join(', ')
 end
 
 get '/tag/:name' do

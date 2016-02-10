@@ -1,9 +1,8 @@
 <p>You asked for post <%= @id %></p>
-
+<% if !@post %>
+<p> That post doesn't exist, buddy.</p>
+<% else %>
 <p><%= @post.title %></p>
 <p><%= @post.body %></p>
-<p>Tags:
-  <% @post.tags.each do |tag| %>
-  <a href="/tag/<%= tag %>"><%= tag.name %></a>,
-  <% end %>
-</p>
+<%= erb :_showtags, :locals => {:post => @post} %>
+<% end %>

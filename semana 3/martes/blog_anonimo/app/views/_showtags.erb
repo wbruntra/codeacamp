@@ -1,1 +1,6 @@
-
+<p>Tags:
+  <% post.tags.each do |tag| %>
+  <a href="/tag/<%= tag.name %>"><%= tag.name %></a>
+  <% if post.tags.last.name != tag.name %> , <% end %>
+  <% end %>
+</p>
