@@ -1,13 +1,79 @@
 .container {
   margin: 0 auto;
   width: 768px;
+  text-align:center;
 }
 
 header {
+  text-align: center;
   background-color: black;
 }
 
 #logo {
   display: block;
   margin: 0 auto;
+}
+
+nav {
+  background-color:#adadad;
+}
+
+ul {
+  float:left;
+  text-align:center;
+  margin-top: 0;
+}
+
+ul li {
+  padding-top:10px;
+  margin-top:0;
+  list-style: none;
+  float:left;
+  margin-left:-5px;
+  width:182px;
+  height:20px;
+  color:white;
+}
+
+form {
+  padding:10px 0;
+  margin:0 auto;
+  width:90%;
+  border-radius:5px;
+  text-align:center;
+  background-color:#CCCCCC;
+}
+
+input, textarea, button {
+  border-radius:5px;
+}
+
+input {
+  border:none;
+  margin: 10px;
+  width:43.5%;
+  font-size:1.2em;
+}
+
+input[type="tel"] {
+  width:90.5%;
+}
+
+textarea {
+  border:none;
+  margin-top:10px;
+  width:90%;
+  height:250px;
+}
+
+button {
+  background-color:#1F8CD3;
+  color: white;
+  width: 90.5%;
+  height:40px;
+  margin: 10px auto;
+}
+
+.footer {
+  margin-top:20px;
 }

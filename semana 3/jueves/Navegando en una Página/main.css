@@ -10,3 +10,8 @@
   margin: 0 auto;  
   width: 720px;
 }
+
+div[id *='a'],
+div[id *='i'] {
+  margin-top:300px;
+}
