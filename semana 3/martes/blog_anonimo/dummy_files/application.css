@@ -1,9 +1,26 @@
+body {
+  margin:0;
+  background-color:#3d82ab;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  color: #484848;
+  font-size:1.2em;
+  font-family:Lato;
 }
 th {
   text-align: left;
 }
+
+
+/*
+#3d82ab;
+#ee5921;
+#484848;
+#3186ad;
+#96c950;
+#72a435;*/
