@@ -1,5 +1,4 @@
 <h1>Bienvenido a Rayuela!</h1>
-<p><%= @player1 %>, <%= @player2 %></p>
 <div id="top">
   <button id="start-button">Start</button>
   <p id="start-timer">--</p>
@@ -8,8 +7,11 @@
 </div>
 <div id="bottom">
   <p id="winner"></p>
+  <p id="history-link" style="display:none;"><a href="/#">Permalink to game</a></p>
   <script>
-  players = ["<%= @player1 %>","<%= @player2 %>"];
+    saved = false;
+    j = <%= @status %>;
+    players = j['players'];
   </script>
   <script src="/js/application.js"></script>
 

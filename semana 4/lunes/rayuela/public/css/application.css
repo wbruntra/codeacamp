@@ -3,6 +3,14 @@ body {
   background-color: #3d82ab;
 }
 
+h1 {
+  text-align: center;
+}
+
+form input[type="text"] {
+  width:400px;
+}
+
 .container {
   width:800px;
   margin: 20px auto;
@@ -43,12 +51,16 @@ table td {
   width: 20px;
 }
 
+table td.win {
+  background-color:#4ca432;
+}
+
 table td.active {
   background-color: black;
 }
 
 table td.goal {
-  background-color: red;
+  border-right: 1px solid red;
 }
 
 th {
@@ -57,4 +69,5 @@ th {
 
 #bottom {
   font-size:1.4em;
+  text-align:center;
 }

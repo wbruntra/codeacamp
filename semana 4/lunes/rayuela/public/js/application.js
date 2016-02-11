@@ -1,3 +1,17 @@
+function save_status() {
+	var status = {};
+	status['players'] = players;
+	status['positions'] = position;
+	s = JSON.stringify(status);
+	return s;
+}
+
+function load_status(j) {
+	players = j['players'];
+	position = j['positions'];
+	update_positions();
+}
+
 function create_lanes() {
 	for (var i=0;i<players.length;i++) {
 		var player = players[i];
@@ -10,12 +24,13 @@ function create_lanes() {
 		lane.append(pTable);
 		$('#board').append(lane);
 	}
+	mark_goal(goal);
 }
 
 function create_table(playerName) {
 	var table = $('<table>');
 	var row = $('<tr>');
-	for (var i=0;i<100;i++) {
+	for (var i=0;i<101;i++) {
 		var td = $('<td id="'+playerName+'-'+i+'">');
 		row.append(td);
 	}
@@ -56,16 +71,26 @@ function game_loop() {
 	update_positions();
 	if (all_done()) {
 		clearInterval(g);
-		var winText = evaluate_game();
-		$('#winner').html(winText);
+		finalize();
 		sendResult();
 	}
 };
+
+function finalize() {
+	var winText = evaluate_game();
+	$('#winner').html(winText);
+	result = resolve();
+	if (result != -1) {
+		var winner = players[result];
+		$('#'+winner+'-lane td').addClass('win');
+	}
+}
 
 function sendResult() {
 	data = {};
 	result = resolve();
 	data['players'] = players.join(',');
+	data['status'] = save_status();
 	if (result != -1) {
 		data['winner'] = players[result];
 	}
@@ -74,6 +99,9 @@ function sendResult() {
 		method: 'post',
 		data: data,
 		success: function(e) {
+			var link = '/game/'+e
+			$('#history-link a').attr('href',link);
+			$('#history-link').show();
 			console.log(e);
 			}
 		});
@@ -99,7 +127,7 @@ function resolve() {
 	else if (diff[0] < 0) {
 		return 1;
 	}
-	else if (diff[1] < 1) {
+	else if (diff[1] < 0) {
 		return 0;
 	}
 	else if (diff[0] < diff[1]) {
@@ -167,8 +195,13 @@ $(document).ready(function() {
 			stopped[player] = true;
 		}
 	});
-	game_init();
-	mark_goal(goal);
+	if (!saved) {
+		game_init();
+	}
+	else {
+		load_status(j);
+		finalize();
+	}
 	$('#start-button').on('click',function(e) {
 		game_init();
 		$('#start-timer').show();

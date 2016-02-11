@@ -1,0 +1,22 @@
+<h1>Game History</h1>
+<div id="top">
+  <!-- <button id="start-button">Start</button>
+  <p id="start-timer">--</p> -->
+</div>
+<div id="board">
+</div>
+<div id="bottom">
+  <p id="winner"></p>
+  <script>
+    saved = true;
+    j = <%= @status %>;
+    players = j['players'];
+
+  </script>
+  <script src="/js/application.js"></script>
+  <script>
+      position = j['positions'];
+      load_status(j);
+      $('#winner').html(evaluate_game());
+  </script>
+</div>
