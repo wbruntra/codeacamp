@@ -146,8 +146,8 @@ function timer() {
 }
 
 goal = 85;
-timeStart = 1;
-gameSpeed = 10;
+timeStart = 3;
+gameSpeed = 25;
 
 $(document).ready(function() {
 	// Este código corre después de que `document` fue cargado(loaded)
