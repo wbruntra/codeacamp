@@ -1,0 +1,10 @@
+<div class="entry">
+<h3><a href="/post/<%= post.id %>"> <%= post.title %></a></h3>
+<p><%= post.body %></p>
+<p class="tags">Tags:
+  <% post.tags.each do |tag| %>
+  <a href="/tag/<%= tag.name %>"><%= tag.name %></a>
+  <% if post.tags.last.name != tag.name %> , <% end %>
+  <% end %>
+</p>
+</div>

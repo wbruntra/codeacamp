@@ -1,14 +1,4 @@
-  <h1>Bienvenido a Sinatra!</h1>
+  <h1>Welcome to Anonymous Blog!</h1>
   <% for post in @posts do %>
-    <p><a href="/post/<%= post.id %>"><%= post.title %></a></p>
-    <p><%= post.body %></p>
-    <%= erb :_showtags, locals: { :post => post} %>
-    <!-- <p>Tags:
-      <% post.tags.each do |tag| %>
-      <a href="/tag/<%= tag.name %>"> <%= tag.name %></a>
-        <% if post.tags.last.name != tag.name %> ,
-        <% end %>
-      <% end %>
-    </p> -->
-  <hr>
+    <%= erb :_showpost, locals: {:post => post} %>
   <% end %>

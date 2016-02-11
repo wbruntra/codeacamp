@@ -5,5 +5,5 @@ class Post < ActiveRecord::Base
 
   has_many :connections
   has_many :tags, through: :connections
-
+  
 end

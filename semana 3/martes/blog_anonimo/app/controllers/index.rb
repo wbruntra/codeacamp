@@ -40,10 +40,11 @@ post '/delete' do
   a = Array.new
   post_ids.each do |post_id|
     post = Post.find_by_id(post_id)
-    connections = Connection.where(post_id: post_id)
-    connections.each do |connection|
-      connection.delete
-    end
+    post.connections.destroy_all
+    # connections = Connection.where(post_id: post_id)
+    # connections.each do |connection|
+    #   connection.delete
+    # end
     a = a.push(post.title)
     post.delete
   end

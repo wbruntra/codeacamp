@@ -1,8 +1,5 @@
-<p>You asked for post <%= @id %></p>
 <% if !@post %>
 <p> That post doesn't exist, buddy.</p>
 <% else %>
-<p><%= @post.title %></p>
-<p><%= @post.body %></p>
-<%= erb :_showtags, :locals => {:post => @post} %>
+<%= erb :_showpost, :locals => {:post => @post} %>
 <% end %>
