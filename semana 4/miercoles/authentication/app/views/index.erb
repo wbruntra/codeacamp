@@ -1,0 +1,6 @@
+  <h1>Users!</h1>
+<% if !session['user'] %>
+<%= erb :_nouser %>
+<% else %>
+<p><a href="/signout">Sign out</a></p>
+<% end %>
