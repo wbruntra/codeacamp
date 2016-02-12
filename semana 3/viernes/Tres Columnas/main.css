@@ -3,3 +3,23 @@
   width: 750px;
 }
 
+div.pricing_features {
+  float:left;
+  width:32%;
+  margin-left:1%;
+}
+
+h5 {
+  text-align: center;
+}
+
+ul .pricing_features {
+}
+
+#about {
+  clear:both;
+}
+
+.footer {
+  margin-top:20px;
+}
