@@ -1,1 +1,1 @@
-<%= erb :_displayquestion, locals: { :question => @question } %>
+<%= erb :_displayquestion, locals: { :question => @question, :user_id => session['user_id'] } %>

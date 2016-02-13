@@ -1,15 +1,28 @@
 <div class="entry">
-<h2><%= question.title %></h2>
-<h3><%= question.author %></h3>
-<p><%= question.body %></p>
-<form action="answer/<%= question.id %>" method="post">
-  <textarea name="body" placeholder="Write an answer"></textarea>
-  <input type="submit" value="Answer">
-</form>
-<p><a href="/question/<%= question.id %>">Link</a></p>
-
-<% for answer in question.answers %>
-<p><%= answer.author %></p>
-<p><%= answer.body %></p>
-<% end %>
+  <div id="q-<%= question.id %>"class="question">
+    <p class="author"><%= question.author %> asks:</p>
+    <h2><%= question.title %><span class="link"><a href="/question/<%= question.id %>">Link</a></span></h2>
+    <p class="question-body"><%= question.body %></p>
+    <% if user_id %>
+    <button class="add-answer">Answer</button>
+    <div class="new-answer">
+    <form action="/answer/<%= question.id %>" method="post">
+      <textarea name="body"></textarea>
+      <input type="submit" value="Submit Answer">
+    </form>
+    </div>
+    <% end %>
+  </div>
+    <div class="answers">
+    <% if question.answers.empty? %>
+      <p> No answers yet!</p>
+    <% else %>
+      <% for answer in question.answers %>
+      <div class="answer">
+        <p class="author"><%= answer.author %></p>
+        <p class="body"><%= answer.body %></p>
+    </div>
+      <% end %>
+    <% end %>
+    </div>
 </div>

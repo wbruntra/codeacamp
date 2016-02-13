@@ -1,9 +1,5 @@
+<%= erb :_top, locals: {:user_id => session['user_id']} %>
   <h1>Quora!</h1>
 <% for question in @questions %>
-  <%= erb :_displayquestion, locals: { :question => question } %>
-<% end %>
-<% if !session['user_id'] %>
-<%= erb :_nouser %>
-<% else %>
-<p><a href="/signout">Sign out</a></p>
+  <%= erb :_displayquestion, locals: { :question => question, :user_id => session['user_id'] } %>
 <% end %>

@@ -1,0 +1,13 @@
+<div id="topbar">
+  <% if user_id %>
+    <p><a href="/signout">Sign out</a></p>
+    <p><a href="/ask">Ask</a></p>
+  <% else %>
+    <%= erb :_nouser %>
+  <% end %>
+</div>
+
+<% if !session['user_id'] %>
+<% else %>
+
+<% end %>

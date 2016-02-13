@@ -53,7 +53,7 @@ post '/answer/:id' do
   @question = Question.find_by_id(question_id)
   answer = Answer.create(answer_info)
 
-  erb :question
+  redirect '/question/'+question_id
 end
 
 get '/debug' do

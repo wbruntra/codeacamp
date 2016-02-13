@@ -1,0 +1,11 @@
+<div class="new-answer">
+<form action="answer/<%= question.id %>" method="post">
+  <textarea></textarea>
+</form>
+<button>Submit Answer</button>
+</div>
+
+<form action="answer/<%= question.id %>" method="post">
+  <textarea name="body" placeholder="Write an answer"></textarea>
+  <input type="submit" value="Answer">
+</form>
