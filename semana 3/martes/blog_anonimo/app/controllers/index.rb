@@ -7,6 +7,7 @@ get '/' do
 end
 
 get '/new' do
+
   erb :newpost
 end
 
