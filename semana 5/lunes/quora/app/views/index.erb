@@ -1,4 +1,9 @@
-  <h1>Bienvenido a Sinatra!</h1>
-  <p>Este es un esqueleto de sinatra que armamos para ti</p>
-
-  
+  <h1>Quora!</h1>
+<% for question in @questions %>
+  <%= erb :_displayquestion, locals: { :question => question } %>
+<% end %>
+<% if !session['user_id'] %>
+<%= erb :_nouser %>
+<% else %>
+<p><a href="/signout">Sign out</a></p>
+<% end %>

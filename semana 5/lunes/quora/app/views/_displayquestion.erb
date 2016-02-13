@@ -1,0 +1,15 @@
+<div class="entry">
+<h2><%= question.title %></h2>
+<h3><%= question.author %></h3>
+<p><%= question.body %></p>
+<form action="answer/<%= question.id %>" method="post">
+  <textarea name="body" placeholder="Write an answer"></textarea>
+  <input type="submit" value="Answer">
+</form>
+<p><a href="/question/<%= question.id %>">Link</a></p>
+
+<% for answer in question.answers %>
+<p><%= answer.author %></p>
+<p><%= answer.body %></p>
+<% end %>
+</div>
