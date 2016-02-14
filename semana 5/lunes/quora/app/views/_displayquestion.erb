@@ -6,7 +6,7 @@
     <% if user_id %>
     <button class="add-answer">Answer</button>
     <div class="new-answer">
-    <form action="/answer/<%= question.id %>" method="post">
+    <form action="/answer/<%= question.id %>" data-question-id="<%= question.id%>" method="post">
       <textarea name="body"></textarea>
       <input type="submit" value="Submit Answer">
     </form>

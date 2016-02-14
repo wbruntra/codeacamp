@@ -1,4 +1,4 @@
-<%= erb :_top, locals: {:user_id => session['user_id']} %>
+<%= erb :_top, locals: {:user => @user} %>
   <h1>Quora!</h1>
 <% for question in @questions %>
   <%= erb :_displayquestion, locals: { :question => question, :user_id => session['user_id'] } %>

@@ -1,5 +1,6 @@
 <div id="topbar">
-  <% if user_id %>
+  <% if user %>
+    <p class="user-display" data-userid="<%= user.id %>"><%= user.username %></p>
     <p><a href="/signout">Sign out</a></p>
     <p><a href="/ask">Ask</a></p>
   <% else %>

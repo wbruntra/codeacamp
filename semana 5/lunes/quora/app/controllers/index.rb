@@ -7,6 +7,7 @@ end
 
 get '/' do
   @questions = Question.all
+  @user = User.find_by_id(session['user_id'])
 
   erb :index
 end
@@ -41,7 +42,7 @@ get '/question/:id' do
 end
 
 post '/answer/:id' do
-  user = User.find_by_id(session['user_id'])
+  user = User.find_by_id(params[:user_id])
   author = user.username
   question_id = params[:id]
   body = params[:body]
@@ -53,7 +54,12 @@ post '/answer/:id' do
   @question = Question.find_by_id(question_id)
   answer = Answer.create(answer_info)
 
-  redirect '/question/'+question_id
+  html = erb :_displayanswer, :layout => false, locals: {:answer => answer}
+  obj = {
+    'html' => html,
+    'question_id' => question_id
+    }
+  JSON.dump(obj)
 end
 
 get '/debug' do
