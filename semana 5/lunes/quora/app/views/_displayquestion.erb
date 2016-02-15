@@ -1,7 +1,7 @@
 <div class="entry">
   <div id="q-<%= question.id %>"class="question">
-    <p class="author"><%= question.author %> asks:</p>
-    <h2><%= question.title %><span class="link"><a href="/question/<%= question.id %>">Link</a></span></h2>
+    <p class="author"><%= question.user.fullname %> asks:</p>
+    <h2><span class="link"><a href="/question/<%= question.id %>"><%= question.title %></a></span></h2>
     <p class="question-body"><%= question.body %></p>
     <% if user_id %>
     <button class="add-answer">Answer</button>
@@ -18,10 +18,7 @@
       <p> No answers yet!</p>
     <% else %>
       <% for answer in question.answers %>
-      <div class="answer">
-        <p class="author"><%= answer.author %></p>
-        <p class="body"><%= answer.body %></p>
-    </div>
+        <%= erb :_displayanswer, locals: {:answer => answer} %>
       <% end %>
     <% end %>
     </div>

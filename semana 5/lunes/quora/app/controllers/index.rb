@@ -13,6 +13,7 @@ get '/' do
 end
 
 get '/ask' do
+  @user = User.find_by_id(session['user_id'])
 
   erb :ask
 end
@@ -23,8 +24,8 @@ post '/ask' do
   title = params[:title]
   body = params[:body]
   question_info = {
-    'author' => user.username,
-    'title' => title,
+    'user_id' => user_id,
+    'title' => title
   }
   if body
     question_info['body'] = body
@@ -37,6 +38,7 @@ end
 get '/question/:id' do
   question_id = params[:id]
   @question = Question.find_by_id(question_id)
+  @user = User.find_by_id(session['user_id'])
 
   erb :question
 end
@@ -48,7 +50,7 @@ post '/answer/:id' do
   body = params[:body]
   answer_info = {
     'question_id' => question_id,
-    'author' => author,
+    'user_id' => user.id,
     'body' => body
   }
   @question = Question.find_by_id(question_id)

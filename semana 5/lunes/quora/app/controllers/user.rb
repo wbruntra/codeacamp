@@ -1,9 +1,20 @@
+get '/profile/:username' do
+  username = params[:username]
+  @user = User.find_by(username: username)
+  user_id = @user.id
+  @questions = @user.questions
+
+  erb :profile
+end
+
 get '/register' do
 
   erb :register
 end
 
 post '/register' do
+  fullname = params[:fullname]
+  email = params[:email]
   username = params[:username]
   password = params[:password]
   user = User.find_by(username: username)
@@ -11,6 +22,8 @@ post '/register' do
     return "Name already taken"
   end
   user_info = {
+    'fullname' => fullname,
+    'email' => email,
     'username' => username,
     'password' => password
   }

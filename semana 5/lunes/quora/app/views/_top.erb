@@ -1,8 +1,9 @@
 <div id="topbar">
   <% if user %>
-    <p class="user-display" data-userid="<%= user.id %>"><%= user.username %></p>
+    <p class="user-display" data-userid="<%= user.id %>"><a href="/profile/<%= user.username %>"><%= user.fullname %></a></p>
     <p><a href="/signout">Sign out</a></p>
     <p><a href="/ask">Ask</a></p>
+    <p><a href="/">Home</a></p>
   <% else %>
     <%= erb :_nouser %>
   <% end %>

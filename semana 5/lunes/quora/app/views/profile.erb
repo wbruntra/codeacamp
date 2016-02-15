@@ -1,0 +1,6 @@
+<%= erb :_top, locals: {:user => @user} %>
+<% for question in @questions %>
+
+<%= erb :_displayquestion, locals: { :question => question, :user_id => @user.id } %>
+
+<% end %>

@@ -24,6 +24,7 @@
 #topbar p.user-display {
   float:left;
   padding-left:40px;
+  width:420px;
 }
 
 body {
@@ -34,7 +35,7 @@ body {
 
 .container {
   margin: 20px auto;
-  width: 80%;
+  width: 800px;
   padding: 0px 20px 20px 20px;
 }
 
@@ -52,15 +53,16 @@ h2 {
   margin-bottom:12px;
 }
 
-.link {
+/*.link {
   margin-left:6px;
-}
+}*/
 
 h2 a, .link {
-  font-family:sans-serif;
+  /*font-family:sans-serif;*/
   text-decoration:none;
-  font-size:.8em;
-  color:#bebebe;
+  color:black;
+  /*font-size:.8em;
+  color:#bebebe;*/
 }
 
 .question .author {
@@ -84,6 +86,15 @@ h2 a, .link {
 
 form.signin {
   padding:60px;
+  height:350px;
+}
+
+form.signin input {
+  width:300px;
+}
+
+form.signin input[type="submit"] {
+  width:150px;
 }
 
 .entry div.question {
@@ -98,24 +109,32 @@ form.signin {
 
 .answer {
   border-bottom: 1px solid black;
+  margin: 20px auto;
 }
 
 .answer p {
   margin:5px 0;
   font-size:16px;
+  width:80%;
 }
 
 .answer .body {
-  margin-left:20px;
+  margin: 20px 10%;
+  line-height: 1.3em;
 }
 
 input, textarea {
   margin:5px 0;
 }
 
-.new-answer {
+.new-answer, .error {
   display:none;
 }
+
+.error {
+  color:#a70000;
+}
+
 textarea {
   font-size:14px;
   font-family:sans-serif;
