@@ -2,3 +2,11 @@
 <p>Name:<%= user.username %></p>
   <p>PW: <%= user.password_digest %></p>
 <% end %>
+
+<% for question in @questions %>
+<p><%= question.title %> -- Votes: <%= question.vote_total %></p>
+<% end %>
+
+<% for answer in @answers %>
+<p> <%= answer.id %> -- Votes: <%= answer.vote_total %></p>
+<% end %>

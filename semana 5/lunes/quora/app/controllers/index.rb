@@ -64,8 +64,30 @@ post '/answer/:id' do
   JSON.dump(obj)
 end
 
+post '/vote/question' do
+  info = {
+    'question_id' => params[:candidate],
+    'user_id' => params[:user_id],
+    'value' => params[:value]
+  }
+  vote = QuestionVote.create(info)
+  'OK'
+end
+
+post '/vote/answer' do
+  info = {
+    'answer_id' => params[:candidate],
+    'user_id' => params[:user_id],
+    'value' => params[:value]
+  }
+  vote = AnswerVote.create(info)
+  'OK'
+end
+
 get '/debug' do
   @users = User.all
-
+  @questions = Question.all
+  @answers = Answer.all
+  
   erb :debug
 end

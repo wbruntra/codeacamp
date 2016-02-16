@@ -1,0 +1,4 @@
+<% for user in @users %>
+<p>Name:<%= user.username %></p>
+  <p>PW: <%= user.password_digest %></p>
+<% end %>

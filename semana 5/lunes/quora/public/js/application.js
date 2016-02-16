@@ -24,9 +24,27 @@ function send_answer(question_id,user_id,body) {
      type: "post",
      url: "/answer/"+question_id,
 		 data: data,
-     dataType: "html",
+     dataType: "json",
      success: updatePage
      });
+}
+
+function send_vote(votetype,value,candidate_id,user_id) {
+  candidate = votetype +'_id'
+	data = { candidate : candidate_id,
+            'user_id' : user_id,
+            'value' : value
+	};
+  console.log(data)
+   $.ajax({
+      type: "post",
+      url: "/vote/"+votetype,
+	 	 data: data,
+      dataType: "html",
+      success: function(data) {
+        console.log(data);
+        },
+      });
 }
 
 function updatePage(data) {
@@ -66,5 +84,21 @@ $(document).ready(function() {
         $(this).children('textarea').html('');
         $(this).siblings('button').show();
         $(this).hide();
+    });
+    $('.vote').on('click',function(e) {
+        e.preventDefault();
+        if ($(this).hasClass('yes')) {
+            var value = 1;
+        } else {
+            var value = -1;
+        }
+        if ($(this).parent().parent().hasClass('question')) {
+            var votetype = 'question';
+        } else {
+            var votetype = 'answer';
+        }
+        var user_id = $('p.user-display').attr('data-userid');
+        var candidate_id = $(this).parent().parent().attr('data-own-id');
+        send_vote(votetype,value,candidate_id,user_id);
     });
 });

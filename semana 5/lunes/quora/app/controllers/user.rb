@@ -7,6 +7,49 @@ get '/profile/:username' do
   erb :profile
 end
 
+get '/community' do
+  @users = User.all
+
+  erb :community
+end
+
+get '/account' do
+  @user = User.find_by_id(session['user_id'])
+
+  erb :account
+end
+
+post '/account' do
+  user = User.find_by_id(session['user_id'])
+  fullname = params[:fullname]
+  email = params[:email]
+  password = params[:password]
+  if (user.password == password)
+    new_info = {
+      'fullname' => fullname,
+      'email' => email
+    }
+    user.update(new_info)
+  end
+end
+
+get '/new-password' do
+  @user = User.find_by_id(session['user_id'])
+
+  erb :newpass
+end
+
+post '/new-password' do
+  user = User.find_by_id(session['user_id'])
+  oldpass = params[:oldpassword]
+  password = params[:password]
+  if (user.password == oldpass)
+    user.update(password: password)
+  end
+
+  redirect '/'
+end
+
 get '/register' do
 
   erb :register

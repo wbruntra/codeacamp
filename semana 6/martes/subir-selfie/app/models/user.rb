@@ -2,9 +2,6 @@ class User < ActiveRecord::Base
   # Remember to create a migration!
   include BCrypt
 
-  has_many :questions
-  has_many :answers
-
   def password
     @password ||= Password.new(password_digest)
   end

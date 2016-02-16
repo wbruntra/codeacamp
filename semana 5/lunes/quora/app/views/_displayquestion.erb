@@ -1,6 +1,9 @@
 <div class="entry">
-  <div id="q-<%= question.id %>"class="question">
-    <p class="author"><%= question.user.fullname %> asks:</p>
+  <div id="q-<%= question.id %>" data-own-id="<%= question.id%>" class="question">
+    <p class="author"><a href="/profile/<%= question.user.username %>"><%= question.user.fullname %></a> asks <span class="votetotal">(<%= question.vote_total %> votes)</span>: </p>
+    <div class="voter">
+    <p class="vote yes"><a href="#">+</a></p><p class="vote no"><a href="#">-</a></p>
+    </div>
     <h2><span class="link"><a href="/question/<%= question.id %>"><%= question.title %></a></span></h2>
     <p class="question-body"><%= question.body %></p>
     <% if user_id %>

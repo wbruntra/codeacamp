@@ -1,4 +1,7 @@
-<div class="answer">
-  <p class="author"><%= answer.user.fullname %></p>
-  <p class="body"><%= answer.body %></p>
+<div class="answer" data-own-id="<%= answer.id %>">
+  <p class="author"><a href="/profile/<%= answer.user.username %>"><%= answer.user.fullname %></a> <span class="votetotal">(<%= answer.vote_total %> votes)</span></p>
+  <div class="voter">
+        <p class="vote yes"><a href="#">+</a></p><p class="vote no"><a href="#">-</a></p>
+  </div>
+    <p class="body"><%= answer.body %></p>
 </div>
