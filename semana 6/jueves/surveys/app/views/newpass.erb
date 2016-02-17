@@ -1,0 +1,11 @@
+<%= erb :_top, locals: {:user => @user} %>
+<form class="signin" action="/new-password" method="post">
+    <br>
+    <input type="password" name="oldpassword" placeholder="Old Password"><br>
+    <br>
+    <input type="password" name="password" placeholder="New Password"><br>
+    <input type="password" name="confirm" placeholder="Confirm New Password"><br>
+    <input type="submit" value="Submit">
+    <p class="error">Passwords do not match!</p>
+</form>
+<script src="/js/register.js"></script>

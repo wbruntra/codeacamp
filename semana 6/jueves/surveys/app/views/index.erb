@@ -1,0 +1,10 @@
+<%= erb :_top, locals: {:user => @user} %>
+  <h1>Surveys!</h1>
+  <p><a href="/create">Create New</a></p>
+  <div class="surveylist">
+    <ul>
+  <% for survey in @surveys %>
+    <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+  <% end %>
+    </ul>
+  </div>

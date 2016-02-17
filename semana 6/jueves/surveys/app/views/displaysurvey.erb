@@ -1,0 +1,9 @@
+<%= survey.title %>
+<% for question in survey.questions %>
+  <%= question.body %>
+  <ol>
+  <% for choice in question.choices %>
+    <li> <%= choice.body %></li>
+  <% end %>
+  </ol>
+<% end %>

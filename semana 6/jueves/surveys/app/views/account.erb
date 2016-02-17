@@ -1,0 +1,11 @@
+<%= erb :_top, locals: {:user => @user} %>
+<p><a href="/new-password">Change Password</a></p>
+<form class="signin" action="/account" method="post">
+  <p>You can change your information here:</p>
+    <input type="text" name="fullname" value="<%= @user.fullname %>" placeholder="Full Name"><br>
+    <input type="text" name="email" value="<%= @user.email %>" placeholder="Email address"><br>
+    <br>
+    <input type="password" name="password" placeholder="Confirm Password"><br>
+    <input type="submit" value="Submit">
+    <p class="error">Passwords do not match!</p>
+</form>
